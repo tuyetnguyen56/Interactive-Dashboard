@@ -60,7 +60,7 @@ function buildCharts(sample) {
           text: 'Sample Count'
         }  
       },      
-      title: '<b>Samples per OTU ID</b>'
+    
     }
 
     Plotly.newPlot('bubble', bubble_data, layout);
