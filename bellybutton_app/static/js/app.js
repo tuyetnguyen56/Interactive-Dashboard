@@ -18,13 +18,9 @@ function buildMetadata(sample) {
     Object.entries(sample).forEach(function ([key, value]) {
       var row = sample.append("p");
       row.text(`${key}: ${value}`);
-
-    });
-      }
-
-    // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
-    )};
+  });
+  }  
+)};
 
 function buildCharts(sample) {
 
