@@ -15,10 +15,12 @@ function buildMetadata(sample) {
     // Use `Object.entries` to add each key and value pair to the panel
     // Hint: Inside the loop, you will need to use d3 to append new
     // tags for each key-value in the metadata.
-    Object.entries(data).forEach(([key, value]) => {
-      sample.append("p").text(`${key}: ${value}`);
+    Object.entries(sample).forEach(function ([key, value]) {
+      var row = sample.append("p");
+      row.text(`${key}: ${value}`);
+
     });
-  }
+      }
 
     // BONUS: Build the Gauge Chart
     // buildGauge(data.WFREQ);
@@ -70,6 +72,7 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+    d3.json(url).then(function(data) {  
     var p_val = data.sample_values.slice(0, 10);
     var p_labels = data.otu_ids.slice(0, 10);
     var p_hovertext = data.otu_labels.slice(0, 10);
@@ -86,8 +89,10 @@ function buildCharts(sample) {
     };
     
     Plotly.newPlot("pie", pie_data, pie_layout);
+   });
   });  
 }
+
 
 function init() {
   // Grab a reference to the dropdown select element
